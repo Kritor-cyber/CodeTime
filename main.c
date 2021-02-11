@@ -34,7 +34,7 @@ int main(void)
         while (continuer)
         {
             Sleep(50);
-            if (GetKeyState('S') & 0x8000)
+            if (GetAsyncKeyState(0x53) & 0x10000000)
             {
                 t = time(NULL);
                 err = localtime_s(&buf, &t);
@@ -46,7 +46,7 @@ int main(void)
                 printf("%dh %dmin %ds\n", buf.tm_hour, buf.tm_min, buf.tm_sec);
                 fprintf_s(timeCode, "%d:%d:%d\n", buf.tm_hour, buf.tm_min, buf.tm_sec);
             }
-            else if (GetKeyState('N') & 0x8000)
+            else if (GetAsyncKeyState(0x4E) & 0x10000000)
             {
                 continuer = 0;
             }
